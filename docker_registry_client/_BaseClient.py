@@ -187,7 +187,7 @@ class BaseClientV2(CommonBaseClient):
         self.auth.desired_scope = 'repository:%s:*' % name
         response = self._http_response(
             self.MANIFEST, get, name=name, reference=reference,
-            schema=self.schema_1_signed,
+            schema=self.schema_2,
         )
         self._cache_manifest_digest(name, reference, response=response)
         return _Manifest(
